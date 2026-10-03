@@ -157,13 +157,13 @@ def main(config):
     dset_loaders = {}
 
     dsets['train'] = ImageList_au(crop_size=config.crop_size, path=config.train_path_prefix,
-                                        transform=prep.image_train_1(crop_size=config.crop_size, re_size=config.width * 14))
+                                        transform=prep.image_train(crop_size=config.crop_size, re_size=config.width * 14))
 
     dset_loaders['train'] = util_data.DataLoader(dsets['train'], batch_size=config.train_batch_size,
                                                  shuffle=True, num_workers=config.num_workers)
 
     dsets['test'] = ImageList_au(config.test_path_prefix, phase='test', 
-                                      transform=prep.image_test_1(crop_size=config.crop_size, re_size=config.width * 14))
+                                      transform=prep.image_test(crop_size=config.crop_size, re_size=config.width * 14))
 
     dset_loaders['test'] = util_data.DataLoader(dsets['test'], batch_size=config.eval_batch_size,
                                                 shuffle=False, num_workers=config.num_workers)
