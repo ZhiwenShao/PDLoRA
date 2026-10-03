@@ -7,7 +7,7 @@ import itertools
 
 import network
 import pre_process as prep
-from util_new import *
+from util import *
 from data_list import ImageList_au
 
 import datetime
